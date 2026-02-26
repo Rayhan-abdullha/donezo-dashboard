@@ -56,7 +56,6 @@ const projects: ProjectItem[] = [
 const ProjectList = () => {
   return (
     <div className="bg-white p-6 rounded-[2rem] border border-gray-100 shadow-sm h-full">
-      {/* Header */}
       <div className="flex justify-between items-center mb-6">
         <h3 className="text-lg font-bold text-[#111827]">Project</h3>
         <button className="flex items-center gap-1 px-3 py-1 border border-gray-200 rounded-xl text-[11px] font-bold text-gray-600 hover:bg-gray-50 transition-colors">
@@ -64,20 +63,15 @@ const ProjectList = () => {
           New
         </button>
       </div>
-
-      {/* Project List */}
       <div className="space-y-6">
         {projects.map((project) => (
           <div key={project.id} className="flex items-center gap-4 group cursor-pointer">
-            {/* Icon Container */}
             <div 
               className="w-10 h-10 rounded-xl flex items-center justify-center transition-transform group-hover:scale-110"
               style={{ backgroundColor: project.bgColor }}
             >
               <project.icon size={20} style={{ color: project.iconColor }} />
             </div>
-
-            {/* Content */}
             <div className="flex flex-col">
               <span className="text-sm font-bold text-[#111827] leading-tight group-hover:text-[#064E3B] transition-colors">
                 {project.title}

@@ -24,12 +24,10 @@ const StatCard: React.FC<StatCardProps> = ({
       hover:translate-y-[-4px] hover:shadow-xl
       rounded-[2rem] border
       ${isPrimary 
-      // bg gredient with subtle shadow for primary variant, solid white with light shadow for secondary
         ? 'bg-gradient-to-bl from-[#064E3B] to-[#15803d] border-transparent text-white shadow-lg shadow-[#064E3B]/20' 
         : 'bg-white border-gray-100 text-[#111827] shadow-sm'
       }
     `}>
-      {/* Top Row: Title and Arrow Icon */}
       <div className="flex justify-between items-start">
         <span className={`text-sm font-medium ${isPrimary ? 'text-gray-300' : 'text-gray-400'}`}>
           {title}
@@ -44,19 +42,14 @@ const StatCard: React.FC<StatCardProps> = ({
           <ArrowUpRight size={16} strokeWidth={2.5} />
         </div>
       </div>
-
-      {/* Middle Row: The Value */}
       <div className="mt-2">
         <h2 className="text-4xl font-bold tracking-tight">{value}</h2>
       </div>
-
-      {/* Bottom Row: Trend or Discussion Status */}
       <div className="mt-auto flex items-center">
         {isPending ? (
           <span className="text-xs font-semibold text-gray-400">On Discuss</span>
         ) : (
           <div className="flex items-center gap-2">
-            {/* Trend Badge */}
             <div className={`
               flex items-center gap-1.5 px-1.5 py-1 rounded-lg text-[10px] font-bold
               ${isPrimary ? 'bg-white/10 text-white' : 'bg-gray-50 border border-gray-100 text-gray-500'}

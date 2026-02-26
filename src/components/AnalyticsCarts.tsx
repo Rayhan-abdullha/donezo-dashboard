@@ -19,25 +19,22 @@ const AnalyticsChart = () => {
             <div 
               style={{ 
                 height: `${item.value}%`,
-                // Custom CSS for the diagonal stripes pattern
                 backgroundImage: item.type === 'pending' 
                   ? 'repeating-linear-gradient(45deg, #e5e7eb, #e5e7eb 2px, transparent 2px, transparent 8px)' 
                   : 'none'
               }}
               className={`w-full max-w-[45px] rounded-full transition-all duration-500 relative flex flex-col items-center ${
                 item.type === 'active' ? 'bg-[#064E3B]' : 
-                item.type === 'completed' ? 'bg-[#15803d]' : // Deep Mint/Green
+                item.type === 'completed' ? 'bg-[#15803d]' :
                 item.type === 'current' ? 'bg-[#6EE7B7]' : 
-                'bg-gray-50 border border-gray-200' // Pending background
+                'bg-gray-50 border border-gray-200'
               }`}
             >
-              {/* The "74%" Tooltip specific to Tuesday */}
               {item.label && (
                 <div className="absolute -top-10 flex flex-col items-center">
                   <div className="bg-white shadow-xl text-[10px] font-bold px-2 py-1 rounded-lg border border-gray-100 text-[#059669]">
                     {item.label}
                   </div>
-                  {/* Small circle indicator on the bar */}
                   <div className="w-2 h-2 bg-white border-2 border-[#6EE7B7] rounded-full mt-1"></div>
                 </div>
               )}
