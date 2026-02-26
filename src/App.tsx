@@ -1,9 +1,8 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
-import Dashboard from './page/Dashboard';
-import './App.css'; // Import your global styles here, e.g., 'App.css';
 import Auth from './page/Auth';
+import Dashboard from './page/Dashboard';
 function App() {
   return (
     <AuthProvider>

@@ -1,9 +1,10 @@
 import DashboardLayout from '../components/layout/AdminLayout'
+import DashboardBody from '../components/Dashboard'
 
 const Dashboard = () => {
   return (
       <DashboardLayout>
-          <h1 className="text-sm font-bold underline">Hello world!</h1>
+        <DashboardBody />
     </DashboardLayout>
   )
 }
