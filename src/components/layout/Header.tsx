@@ -13,7 +13,7 @@ const Header = ({ onMenuClick }: HeaderProps) => {
       <div className="flex items-center gap-4">
         <button 
           onClick={onMenuClick} 
-          className="lg:hidden p-2 text-gray-600 hover:bg-gray-50 rounded-xl transition-colors"
+          className="lg:hidden p-2 text-gray-600 hover:bg-gray-50 rounded-xl transition-colors cursor-pointer"
         >
           <Menu size={24} />
         </button>

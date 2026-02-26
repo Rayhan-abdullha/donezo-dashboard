@@ -32,7 +32,7 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
         onClick={onClose}
       />
       <aside className={`fixed inset-y-0 left-0 z-[50] w-64 bg-white border-r border-gray-200 transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : '-translate-x-full'} lg:relative lg:translate-x-0 lg:flex flex-col p-6 h-full`}>
-        <button onClick={onClose} className="lg:hidden absolute top-5 right-4 text-gray-400 p-1">
+        <button onClick={onClose} className="lg:hidden absolute top-5 right-4 text-gray-400 p-1 cursor-pointer">
           <X size={20} />
         </button>
         <div className="flex items-center gap-2 mb-10 px-2">

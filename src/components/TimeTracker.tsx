@@ -1,12 +1,9 @@
-import React from 'react';
 import { Pause, Square } from 'lucide-react';
 
 const TimeTracker = () => {
   return (
     <div className="relative bg-[#052C22] rounded-[2rem] p-6 text-white overflow-hidden shadow-lg shadow-[#064E3B]/20 min-h-[220px] flex flex-col justify-between group">
-      
-      {/* 1. Deep Organic Swirl Background */}
-      {/* We use multiple overlapping paths with different opacities to mimic 3D depth */}
+    
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="w-full h-full scale-150 origin-center opacity-40 transition-transform duration-700 group-hover:scale-[1.6]">
            <path 
@@ -22,30 +19,20 @@ const TimeTracker = () => {
              className="animate-pulse"
            />
         </svg>
-        {/* Dark overlay to ensure text readability */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#052C22] via-transparent to-transparent opacity-60" />
       </div>
-
-      {/* 2. Header */}
       <div className="relative z-10">
         <p className="text-sm font-medium text-gray-300 mb-2">Time Tracker</p>
       </div>
-
-      {/* 3. Timer - Bold & Centered */}
       <div className="relative z-10 flex flex-col items-center justify-center my-2">
         <span className="text-5xl font-bold tracking-tight drop-shadow-md">
           01:24:08
         </span>
       </div>
-
-      {/* 4. Control Buttons - Matching the specific "Circle" style from your image */}
       <div className="relative z-10 flex items-center justify-center gap-4 mt-2">
-        {/* Pause Button (White Circle) */}
         <button className="w-12 h-12 bg-white text-[#052C22] rounded-full flex items-center justify-center hover:scale-110 transition-transform shadow-lg">
           <Pause size={24} fill="currentColor" />
         </button>
-        
-        {/* Stop Button (Red Circle) */}
         <button className="w-12 h-12 bg-[#EF4444] text-white rounded-full flex items-center justify-center hover:scale-110 transition-transform shadow-lg">
           <Square size={20} fill="currentColor" />
         </button>
