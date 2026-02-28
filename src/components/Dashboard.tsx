@@ -6,6 +6,7 @@ import AnalyticsChart from "./AnalyticsCarts";
 import ProjectProgress from "./ProjectProgress";
 import ProjectList from "./ProjectList";
 import TimeTracker from "./TimeTracker";
+import StateCount from "./StateCount";
 
 const DashboardBody = () => {
   return (
@@ -25,10 +26,7 @@ const DashboardBody = () => {
         </div>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <StatCard title="Total Projects" value={24} trendText="Increased from last month" variant="primary" />
-        <StatCard title="Ended Projects" value={10} trendText="Increased from last month" />
-        <StatCard title="Running Projects" value={12} trendText="Increased from last month" />
-        <StatCard title="Pending Project" value={2} trendText="On Discuss" isPending />
+        <StateCount/>
       </div>
       <div className="grid grid-cols-1 xl:grid-cols-12 gap-4">
         <div className="xl:col-span-8 flex flex-col gap-4">

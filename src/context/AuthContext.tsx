@@ -18,7 +18,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     localStorage.removeItem('token');
   };
 
-  const isAuthenticated = true
+  const isAuthenticated = token !== null;
 
   return (
     <AuthContext.Provider value={{ user, token, login, logout, isAuthenticated }}>

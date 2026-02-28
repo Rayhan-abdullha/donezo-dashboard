@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { Mail, Lock, User, ArrowRight, Loader2 } from 'lucide-react';
@@ -9,7 +9,7 @@ const Auth = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   
-  const { login } = useAuth();
+  const { login, isAuthenticated } = useAuth();
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -25,18 +25,17 @@ const Auth = () => {
 
     try {
       if (isLogin) {
-        // Task Requirement: POST to /api/login
         const response = await axios.post('https://task-api-eight-flax.vercel.app/api/login', {
           email: formData.email,
           password: formData.password
         });
         
-        login(response.data); // Store token and user
+        login(response.data); 
         navigate('/dashboard');
       } else {
-        // Registration logic (Add your registration endpoint here if available)
+        
         console.log("Registering:", formData);
-        setIsLogin(true); // Toggle back to login after "success"
+        setIsLogin(true);
       }
     } catch (err: any) {
       setError(err.response?.data?.message || 'Authentication failed. Please check your credentials.');
@@ -45,10 +44,15 @@ const Auth = () => {
     }
   };
 
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate('/dashboard');
+    }
+  }, [isAuthenticated, navigate]);
+
   return (
     <div className="min-h-screen w-full flex items-center justify-center bg-[#F3F4F6] p-4">
       <div className="w-full max-auto max-w-[450px]">
-        {/* Logo / Branding */}
         <div className="flex flex-col items-center mb-8">
           <div className="w-12 h-12 bg-[#064E3B] rounded-xl flex items-center justify-center mb-4 shadow-lg shadow-[#064E3B]/20">
             <span className="text-white font-bold text-xl">D</span>
@@ -60,8 +64,6 @@ const Auth = () => {
             {isLogin ? 'Enter your details to access your dashboard' : 'Start managing your projects with ease'}
           </p>
         </div>
-
-        {/* Auth Card */}
         <div className="bg-white rounded-[2rem] p-8 shadow-sm border border-gray-100">
           <form onSubmit={handleSubmit} className="space-y-5">
             {error && (
@@ -132,8 +134,6 @@ const Auth = () => {
               )}
             </button>
           </form>
-
-          {/* Toggle Link */}
           <div className="mt-8 text-center">
             <p className="text-gray-500 text-sm">
               {isLogin ? "Don't have an account?" : "Already have an account?"}{' '}
