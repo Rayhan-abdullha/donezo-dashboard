@@ -1,5 +1,4 @@
 import { Plus } from "lucide-react";
-import StatCard from "./layout/StateCard";
 import ReminderCard from "./ReminderCard";
 import TeamCollaboration from "./TeamCollabration";
 import AnalyticsChart from "./AnalyticsCarts";
