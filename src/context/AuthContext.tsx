@@ -9,6 +9,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const login = (userData: User) => {
     setToken(userData.token);
     setUser(userData);
+    localStorage.setItem('user', JSON.stringify(userData)); // Bonus: Persistent Auth
     localStorage.setItem('token', userData.token); // Bonus: Persistent Auth
   };
 
@@ -16,6 +17,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     setToken(null);
     setUser(null);
     localStorage.removeItem('token');
+    localStorage.removeItem('user');
   };
 
   const isAuthenticated = token !== null;
