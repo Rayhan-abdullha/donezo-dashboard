@@ -9,11 +9,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/login" element={<Auth/>} />
-          
-          {/* Protected Dashboard Routes */}
-          <Route element={<ProtectedRoute />}>
             <Route path="/dashboard" element={<Dashboard/>} />
-          </Route>
           <Route path="*" element={<Navigate to="/login" replace />} />
         </Routes>
       </BrowserRouter>
